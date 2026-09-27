@@ -31,9 +31,9 @@ with st.sidebar:
 
     st.subheader("Status Layanan")
     if GROQ_API_KEY:
-        st.success("Sistem AI Siap", icon="✅")
+        st.success("Sistem AI Siap")
     else:
-        st.error("API Key Belum Ada", icon="🚨")
+        st.error("API Key Belum Ada")
 
     st.divider()
     st.markdown("**Mesin AI Utama**")
@@ -84,7 +84,7 @@ if uploaded_file:
     st.success(f"Dokumen **{uploaded_file.name}** berhasil dipahami oleh sistem!")
 
     # Processing PDF
-    @st.cache_resource(show_spinner="⚙️ Membaca dan menganalisis struktur dokumen...")
+    @st.cache_resource(show_spinner="Membaca dan menganalisis struktur dokumen...")
     def process_pdf(file_bytes):
         with open("temp.pdf", "wb") as f:
             f.write(file_bytes)
@@ -116,7 +116,7 @@ if uploaded_file:
             st.markdown(message["content"])
 
     # Quick Prompts / Tombol Bantuan Interaktif
-    st.markdown("**💡 Contoh pertanyaan cepat:**")
+    st.markdown("**Contoh pertanyaan cepat:**")
     col1, col2, col3 = st.columns(3)
     quick_input = None
     if col1.button("Rangkum isi dokumen"):
