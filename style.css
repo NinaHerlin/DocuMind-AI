@@ -1,0 +1,233 @@
+/* Palet Warna Warm Autumn */
+
+
+:root {
+    --bg-main: #FDFBF7;           /* Warm Off-White / Cream */
+    --bg-surface: #F5EFE6;        /* Warm Beige Card Surface */
+    --bg-card: #FFFFFF;           /* Soft White Container */
+    --sidebar-bg: #F2EAD3;        /* Soft Golden Beige */
+    
+    --text-primary: #2C1810;      /* Deep Espresso / Off-Black */
+    --text-muted: #786452;        /* Warm Taupe / Soft Brown */
+    
+    --accent-maple: #C85A32;       /* Burnt Orange / Maple Red */
+    --accent-amber: #E07A5F;       /* Warm Coral / Amber */
+    --accent-gold: #D4A373;        /* Soft Warm Gold */
+    --accent-hover: #A0401D;      /* Deep Terracotta */
+    
+    --border-light: #E8DFD0;      /* Soft Warm Border */
+    --border-focus: #C85A32;      /* Accent Border Focus */
+}
+
+/* Background Utama Aplikasi */
+.stApp {
+    background: linear-gradient(135deg, #FDFBF7 0%, #F5EFE6 50%, #EFE5D5 100%) !important;
+    color: var(--text-primary) !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Override Semua Teks Default */
+[data-testid="stAppViewContainer"] h1,
+[data-testid="stAppViewContainer"] h2,
+[data-testid="stAppViewContainer"] h3,
+[data-testid="stAppViewContainer"] h4,
+[data-testid="stAppViewContainer"] p,
+[data-testid="stAppViewContainer"] li,
+[data-testid="stAppViewContainer"] label,
+[data-testid="stAppViewContainer"] [data-testid="stMarkdownContainer"] {
+    color: var(--text-primary) !important;
+}
+
+[data-testid="stAppViewContainer"] [data-testid="stCaptionContainer"] {
+    color: var(--text-muted) !important;
+}
+
+/* Header Transparan */
+[data-testid="stHeader"] {
+    background: transparent !important;
+}
+
+/* Sidebar Styling */
+[data-testid="stSidebar"] {
+    background-color: var(--sidebar-bg) !important;
+    border-right: 1px solid var(--border-light) !important;
+}
+
+[data-testid="stSidebar"] h1,
+[data-testid="stSidebar"] h2,
+[data-testid="stSidebar"] h3,
+[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p,
+[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] strong {
+    color: var(--text-primary) !important;
+}
+
+/* Code Block di Sidebar (Menghilangkan Background Hitam Bekas Model AI) */
+[data-testid="stSidebar"] code {
+    background-color: #E6DCC8 !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-light) !important;
+    border-radius: 8px !important;
+    font-weight: 600;
+}
+
+/* Hero Section / Header Container */
+.hero {
+    position: relative;
+    overflow: hidden;
+    margin: 0.5rem 0 1.5rem;
+    padding: 2rem 2.5rem;
+    border: 1px solid var(--border-light);
+    border-radius: 20px;
+    background: linear-gradient(120deg, #F5EFE6 0%, #EFE3D0 60%, #E8D3BD 100%);
+    box-shadow: 0 10px 25px -5px rgba(200, 90, 50, 0.08);
+}
+
+.hero-kicker {
+    margin-bottom: 0.5rem;
+    color: var(--accent-maple);
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.main-title {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: 2.4rem;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.sub-title {
+    margin-top: 0.8rem;
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* File Uploader Container */
+[data-testid="stFileUploader"] {
+    margin: 1rem 0;
+    padding: 0.5rem;
+    border: 1px solid var(--border-light) !important;
+    border-radius: 16px !important;
+    background: var(--bg-card) !important;
+    box-shadow: 0 4px 12px rgba(44, 24, 16, 0.03);
+}
+
+[data-testid="stFileUploader"] section {
+    border: 2px dashed var(--accent-gold) !important;
+    border-radius: 12px !important;
+    background: #FAF6EE !important;
+    transition: all 0.3s ease;
+}
+
+[data-testid="stFileUploader"] section:hover {
+    border-color: var(--accent-maple) !important;
+    background: #F5EBDC !important;
+}
+
+/* Menghilangkan background hitam pada badge file PDF yang ter-upload */
+[data-testid="stFileUploader"] [data-testid="stFileUploaderFileData"] {
+    background-color: var(--bg-surface) !important;
+    border: 1px solid var(--border-light) !important;
+    border-radius: 8px !important;
+}
+
+[data-testid="stFileUploader"] [data-testid="stFileUploaderFileData"] div,
+[data-testid="stFileUploader"] [data-testid="stFileUploaderFileData"] span {
+    color: var(--text-primary) !important;
+}
+
+/* Workflow Cards Interaktif */
+.workflow {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.2rem;
+    margin: 1.5rem 0;
+}
+
+.workflow > div {
+    padding: 1.2rem 1.4rem;
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    background: var(--bg-card);
+    box-shadow: 0 4px 15px rgba(44, 24, 16, 0.04);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.workflow > div:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-amber);
+    box-shadow: 0 10px 20px rgba(200, 90, 50, 0.12);
+}
+
+.step-number {
+    display: inline-block;
+    padding: 2px 10px;
+    margin-bottom: 0.6rem;
+    background: #F9EBE0;
+    color: var(--accent-maple);
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 800;
+}
+
+/* Chat Message Styling */
+[data-testid="stChatMessage"] {
+    padding: 1rem 1.2rem !important;
+    margin-bottom: 0.8rem !important;
+    border: 1px solid var(--border-light) !important;
+    border-radius: 16px !important;
+    background: var(--bg-card) !important;
+    box-shadow: 0 4px 12px rgba(44, 24, 16, 0.03);
+}
+
+/* Mengubah Area Input Chat Bawah (Hilangkan Hitam Bekas Theme Dark) */
+[data-testid="stBottom"],
+[data-testid="stBottomBlockContainer"] {
+    background: transparent !important;
+}
+
+[data-testid="stChatInput"] {
+    border: 1px solid var(--border-light) !important;
+    border-radius: 16px !important;
+    background: var(--bg-card) !important;
+    box-shadow: 0 8px 24px rgba(44, 24, 16, 0.08) !important;
+}
+
+[data-testid="stChatInput"]:focus-within {
+    border-color: var(--accent-maple) !important;
+}
+
+[data-testid="stChatInput"] textarea {
+    color: var(--text-primary) !important;
+    background: transparent !important;
+}
+
+[data-testid="stChatInput"] textarea::placeholder {
+    color: var(--text-muted) !important;
+}
+
+[data-testid="stChatInput"] button {
+    color: var(--accent-maple) !important;
+    background-color: #F8EBE1 !important;
+    border-radius: 10px !important;
+}
+
+[data-testid="stChatInput"] button:hover {
+    background-color: var(--accent-maple) !important;
+    color: #FFFFFF !important;
+}
+
+/* Success / Alert Box Overrides */
+[data-testid="stAlert"] {
+    background-color: #EFE8DA !important;
+    border: 1px solid #D1C5B0 !important;
+    border-radius: 14px !important;
+}
+
+[data-testid="stAlert"] [data-testid="stMarkdownContainer"] p {
+    color: #4A3525 !important;
+}
