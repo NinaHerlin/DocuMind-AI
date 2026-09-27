@@ -26,7 +26,7 @@ st.markdown(f"<style>{css_path.read_text(encoding='utf-8')}</style>", unsafe_all
 # 3. Sidebar
 with st.sidebar:
     st.title("🍁 DocuMind AI")
-    st.caption("Asisten Dokumen Cerdas & Hangat")
+    st.caption("Asisten Dokumen Pintar untuk Membaca, Meringkas, dan Menjawab Pertanyaan dari PDF")
     st.divider()
 
     st.subheader("Status Layanan")
