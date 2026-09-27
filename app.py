@@ -29,7 +29,7 @@ with st.sidebar:
     st.caption("Asisten Dokumen Cerdas & Hangat")
     st.divider()
 
-    st.subheader("⚙️ Status Layanan")
+    st.subheader("Status Layanan")
     if GROQ_API_KEY:
         st.success("Sistem AI Siap", icon="✅")
     else:
@@ -81,7 +81,7 @@ if uploaded_file:
         st.write(f"**Nama:** {uploaded_file.name}")
         st.write(f"**Ukuran:** {round(uploaded_file.size / 1024, 2)} KB")
 
-    st.success(f"Dokumen **{uploaded_file.name}** berhasil dipahami oleh sistem!", icon="🎉")
+    st.success(f"Dokumen **{uploaded_file.name}** berhasil dipahami oleh sistem!")
 
     # Processing PDF
     @st.cache_resource(show_spinner="⚙️ Membaca dan menganalisis struktur dokumen...")
@@ -119,11 +119,11 @@ if uploaded_file:
     st.markdown("**💡 Contoh pertanyaan cepat:**")
     col1, col2, col3 = st.columns(3)
     quick_input = None
-    if col1.button("📌 Rangkum isi dokumen"):
+    if col1.button("Rangkum isi dokumen"):
         quick_input = "Tolong buatkan ringkasan poin-poin utama dari dokumen ini."
-    if col2.button("🔍 Apa kesimpulannya?"):
+    if col2.button("Apa kesimpulannya?"):
         quick_input = "Apa kesimpulan utama yang disampaikan dalam dokumen ini?"
-    if col3.button("❓ Apa poin pentingnya?"):
+    if col3.button("Apa poin pentingnya?"):
         quick_input = "Sebutkan 3-5 poin paling penting yang ada di dokumen ini."
 
     user_query = st.chat_input("Tulis pertanyaan kamu di sini...") or quick_input

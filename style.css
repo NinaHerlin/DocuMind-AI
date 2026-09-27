@@ -1,6 +1,6 @@
-/* Palet Warna Warm Autumn */
-
-
+/* ==========================================================================
+   PALET WARNA WARM AUTUMN
+   ========================================================================== */
 :root {
     --bg-main: #FDFBF7;           /* Warm Off-White / Cream */
     --bg-surface: #F5EFE6;        /* Warm Beige Card Surface */
@@ -19,14 +19,19 @@
     --border-focus: #C85A32;      /* Accent Border Focus */
 }
 
-/* Background Utama Aplikasi */
-.stApp {
+/* ==========================================================================
+   GLOBAL & BACKGROUND OVERRIDES (Pembersihan Latar Hitam)
+   ========================================================================== */
+html, body, .stApp, 
+[data-testid="stAppViewContainer"],
+[data-testid="stMain"],
+.main {
     background: linear-gradient(135deg, #FDFBF7 0%, #F5EFE6 50%, #EFE5D5 100%) !important;
     color: var(--text-primary) !important;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-/* Override Semua Teks Default */
+/* Override Teks Default & Markdown */
 [data-testid="stAppViewContainer"] h1,
 [data-testid="stAppViewContainer"] h2,
 [data-testid="stAppViewContainer"] h3,
@@ -34,6 +39,7 @@
 [data-testid="stAppViewContainer"] p,
 [data-testid="stAppViewContainer"] li,
 [data-testid="stAppViewContainer"] label,
+[data-testid="stAppViewContainer"] span,
 [data-testid="stAppViewContainer"] [data-testid="stMarkdownContainer"] {
     color: var(--text-primary) !important;
 }
@@ -42,13 +48,16 @@
     color: var(--text-muted) !important;
 }
 
-/* Header Transparan */
+/* Header Navbar Streamlit */
 [data-testid="stHeader"] {
     background: transparent !important;
 }
 
-/* Sidebar Styling */
-[data-testid="stSidebar"] {
+/* ==========================================================================
+   SIDEBAR & CODE BLOCK (Menghilangkan Kotak Hitam Model AI)
+   ========================================================================== */
+[data-testid="stSidebar"],
+[data-testid="stSidebarNav"] {
     background-color: var(--sidebar-bg) !important;
     border-right: 1px solid var(--border-light) !important;
 }
@@ -61,16 +70,27 @@
     color: var(--text-primary) !important;
 }
 
-/* Code Block di Sidebar (Menghilangkan Background Hitam Bekas Model AI) */
-[data-testid="stSidebar"] code {
+/* Override st.code & Code Elements */
+code, pre, 
+[data-testid="stCodeBlock"], 
+[data-testid="stSidebar"] code,
+[data-testid="stSidebar"] pre,
+.stCode {
     background-color: #E6DCC8 !important;
     color: var(--text-primary) !important;
     border: 1px solid var(--border-light) !important;
     border-radius: 8px !important;
-    font-weight: 600;
+    font-weight: 600 !important;
 }
 
-/* Hero Section / Header Container */
+[data-testid="stCodeBlock"] * {
+    background-color: transparent !important;
+    color: var(--text-primary) !important;
+}
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
 .hero {
     position: relative;
     overflow: hidden;
@@ -106,7 +126,9 @@
     line-height: 1.6;
 }
 
-/* File Uploader Container */
+/* ==========================================================================
+   FILE UPLOADER & BADGE (Menghilangkan Hitam pada PDF Chip)
+   ========================================================================== */
 [data-testid="stFileUploader"] {
     margin: 1rem 0;
     padding: 0.5rem;
@@ -128,19 +150,29 @@
     background: #F5EBDC !important;
 }
 
-/* Menghilangkan background hitam pada badge file PDF yang ter-upload */
-[data-testid="stFileUploader"] [data-testid="stFileUploaderFileData"] {
-    background-color: var(--bg-surface) !important;
-    border: 1px solid var(--border-light) !important;
-    border-radius: 8px !important;
-}
-
-[data-testid="stFileUploader"] [data-testid="stFileUploaderFileData"] div,
-[data-testid="stFileUploader"] [data-testid="stFileUploaderFileData"] span {
+/* Chip/Badge File Ter-upload */
+[data-testid="stFileUploaderFileData"],
+[data-testid="stFileUploader"] [data-testid="stFileUploaderFileData"],
+.uploadedFile,
+div[data-testid="stFileUploader"] div[role="button"] {
+    background-color: #EFE6D5 !important;
+    border: 1px solid #D8CBB5 !important;
+    border-radius: 10px !important;
     color: var(--text-primary) !important;
 }
 
-/* Workflow Cards Interaktif */
+[data-testid="stFileUploaderFileData"] *,
+[data-testid="stFileUploaderFileData"] span,
+[data-testid="stFileUploaderFileData"] div,
+[data-testid="stFileUploaderFileData"] small,
+[data-testid="stFileUploaderFileData"] svg {
+    color: var(--text-primary) !important;
+    fill: var(--text-primary) !important;
+}
+
+/* ==========================================================================
+   WORKFLOW CARDS & ST.BUTTON (Tombol Pertanyaan Cepat)
+   ========================================================================== */
 .workflow {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -174,7 +206,35 @@
     font-weight: 800;
 }
 
-/* Chat Message Styling */
+/* Override Semua Tombol st.button (Menghilangkan Hitam pada Contoh Pertanyaan) */
+.stButton > button,
+button[kind="secondary"],
+button[kind="primary"] {
+    background-color: #F5EFE6 !important;
+    color: var(--text-primary) !important;
+    border: 1px solid #D8CBB5 !important;
+    border-radius: 10px !important;
+    font-weight: 600 !important;
+    transition: all 0.2s ease !important;
+    box-shadow: 0 2px 6px rgba(44, 24, 16, 0.03) !important;
+}
+
+.stButton > button:hover,
+button[kind="secondary"]:hover,
+button[kind="primary"]:hover {
+    background-color: var(--accent-maple) !important;
+    color: #FFFFFF !important;
+    border-color: var(--accent-maple) !important;
+}
+
+.stButton > button p,
+.stButton > button span {
+    color: inherit !important;
+}
+
+/* ==========================================================================
+   CHAT MESSAGES & CHAT INPUT (Menghilangkan Hitam di Footer / Bottom Bar)
+   ========================================================================== */
 [data-testid="stChatMessage"] {
     padding: 1rem 1.2rem !important;
     margin-bottom: 0.8rem !important;
@@ -184,16 +244,27 @@
     box-shadow: 0 4px 12px rgba(44, 24, 16, 0.03);
 }
 
-/* Mengubah Area Input Chat Bawah (Hilangkan Hitam Bekas Theme Dark) */
+/* Menghilangkan Latar Hitam di Bottom Container */
 [data-testid="stBottom"],
-[data-testid="stBottomBlockContainer"] {
+[data-testid="stBottomBlockContainer"],
+[data-testid="stBottomContainer"],
+footer {
+    background-color: transparent !important;
     background: transparent !important;
 }
 
+/* Menghilangkan gradient overlay hitam bawaan Streamlit di bottom bar */
+[data-testid="stBottom"]::before,
+[data-testid="stBottomBlockContainer"]::before {
+    display: none !important;
+    background: none !important;
+}
+
+/* Box Input Chat */
 [data-testid="stChatInput"] {
-    border: 1px solid var(--border-light) !important;
+    border: 1.5px solid #D8CBB5 !important;
     border-radius: 16px !important;
-    background: var(--bg-card) !important;
+    background-color: #FFFFFF !important;
     box-shadow: 0 8px 24px rgba(44, 24, 16, 0.08) !important;
 }
 
@@ -210,10 +281,12 @@
     color: var(--text-muted) !important;
 }
 
+/* Tombol Kirim di Chat Input */
 [data-testid="stChatInput"] button {
     color: var(--accent-maple) !important;
     background-color: #F8EBE1 !important;
     border-radius: 10px !important;
+    border: none !important;
 }
 
 [data-testid="stChatInput"] button:hover {
@@ -221,7 +294,13 @@
     color: #FFFFFF !important;
 }
 
-/* Success / Alert Box Overrides */
+[data-testid="stChatInput"] button svg {
+    fill: currentColor !important;
+}
+
+/* ==========================================================================
+   ALERT & STATUS MESSAGES
+   ========================================================================== */
 [data-testid="stAlert"] {
     background-color: #EFE8DA !important;
     border: 1px solid #D1C5B0 !important;
